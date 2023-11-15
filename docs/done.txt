@@ -1,0 +1,1 @@
+- purely sequential midi file at 120bpm 4/4 time signature

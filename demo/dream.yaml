@@ -1,0 +1,16 @@
+title: "And Your Dream Comes True - The Beach Boys"
+adjustAccidentals : True
+sections:
+  - key:
+      keyPitch : Df
+      keyMode: Major
+    time:
+      numerator: 2
+      denominator: 4
+    measures: 6
+  - key:
+      keyPitch : C
+      keyMode: Major
+    time:
+      numerator: 4
+      denominator: 4

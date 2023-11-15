@@ -1,0 +1,21 @@
+- format accidentals based on key (e.g. F key has one flat on B)
+- if a pitch is equal to A# or Bb, then default to just printing "b"
+- allow user input for key/time-signature for x measures
+- default: automatically try to figure it out / just use 4/4, C key
+- all one execution: output PDF and ask user to verify and prompt for key/time
+
+USER EXPERIENCE
+
+> Please enter your MIDI file file path
+twinklestar.mid
+> We have generated twinklestar.ly and twinklestar.pdf. Please navigate to your file system to see if you want to make any adjustments to your score. Type Y if you would like to continue. Type N if you are satisfied with your score
+Y
+> Please specify the time and key signature in the format of [time signature], [key signature], [# of measures]. If you don’t specify the # of measures, we will assume your time and key signature applies for the rest of the music. (Example: 4 / 4, F, 120). Press enter to skip this step. (Default is 4/4, C)
+2 / 4, F, 60
+4 / 4, C
+> Please specify the clef if you would like your music to come in, in the order of the parts generated from top to bottom. Press enter to skip this step/
+treble, treble, bass
+> Would you like hscore to auto adjust your accidentals according to your key signatures? [Y/N]
+> Thank you for your specifications. We have updated twinklestar.ly and twinklestar.pdf. Would you like to readjust? [Y/N]
+N
+> Program exiting

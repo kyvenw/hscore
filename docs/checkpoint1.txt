@@ -1,0 +1,43 @@
+What modules will comprise your project?
+    Our project will be broken down into 2 main modules:
+        1. Euterpea Music to LilyPond Pretty Printer
+            i. Uses Euterpea's Music type
+        2. LilyPond Syntax to Euterpea Music Parser
+            i. Builds off of Parser type from HW06
+What data structures will you use to model your project?
+    We will use Euterpea's Music datatype to represent music in our project.
+    We will be writing a printer that will print this music type into valid
+    LilyPond code, as well as a parser that will read LilyPond code into
+    Music representation.
+What functions will you need to write? What are their type signatures?
+    1. Euterpea Music to LilyPond Pretty Printer
+        i. Implement various PP instances
+    2. LilyPond Syntax to Euterpea Music Parser
+        i. Implement various Parser instances
+What testing will you do?
+    1. Euterpea Music to LilyPond Pretty Printer
+        i. Unit tests
+    2. LilyPond Syntax to Euterpea Music Parser
+        i. Unit tests
+    3. Round trip testing for workflow
+        i. QuickCheck property
+    4. End-to-end music integrity testing
+        i. MIDI input vs MIDI output comparison
+            a. LilyPond has a built in way to output MIDI from LilyPond code
+What questions do you have for your mentor?
+    1. We decided to cut out the Haskell LilyPond representation since it
+       felt like we were doing a lot of redundant work -- i.e. most things were
+       already represented in Euterpea's Music type. Does this make sense?
+        - Bring LilyPond representation back in: makes more sense and will be
+          easier to work with and also print from.
+    2. Does our testing make sense? We think the unit tests for each component
+       as well as the round-trip quickcheck property should give us a good sense
+       of how confident we can be that our project is implemented correctly.
+        - QuickCheck not necessary, good old unit tests are great. We can still
+          pursue randomly generating music if we really want to and also MIDI
+          comparison down the line.
+    3. For now, we are focusing on implementing parsing and printing to a
+       subset of LilyPond's language. As we continue, we plan on increasing the
+       amount of the language we capture. Is this a reasonable approach?
+        - Subset makes sense. We will have to bring LilyPond representation in,
+          but this allows us to specify exactly what subset we support

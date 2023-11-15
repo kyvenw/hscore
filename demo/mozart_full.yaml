@@ -1,0 +1,10 @@
+adjustAccidentals : True
+sections:
+  - key:
+      keyPitch : C
+      keyMode: Major
+    time:
+      numerator: 4
+      denominator: 4
+midi:
+  tempo: 120

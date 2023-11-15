@@ -1,0 +1,90 @@
+Rubric:
+    - Correctness
+        - Completion
+            - Done:
+                - End-to-end MIDI to Sheet Music transcription
+                - YAML-based configuration for key signature, time signature, automated accidental adjustment, pickup measures
+                - Support for both pure sequential and parallel music
+                - Styles output sheet music by musical conventions
+                - Output sheet music is completely accurate by sound and very close to "gold standard" sheet music by appearance
+        - Difficulty
+            - A lot of deep-diving and abstraction required to accomplish
+
+    - Progression, Challenges, Notable Features 
+        - MVP 
+                - Create a LilyPond Haskell Representation
+                - Implement Pretty Printer to translate LilyPond Haskell to LilyPond text 
+                    - Translate Duration of notes from Haskell duration to LilyPond text duration (non-trivial)
+            - 1) Basic sequential, one-line music conversion from MIDI -> Sheet Music
+            - 2) Basic parallel, multi-staff music conversion from MIDI -> Sheet Music 
+                - Aligning parallel notes in exactly the right places (non-trivial)
+            - 3) Integrate entire MIDI->PDF pipeline, including the "lilypond" terminal command into one main Function
+        - BONUS FEATURES
+            - 4) Create staves of sections of measures accurately according to key signature and time signature
+                - Break notes up into different measures as needed with a tie
+            - 5) Polish sheet music to be better style by musical conventions! 
+                - Auto-adjust note accidentals according to the key signature (Ex: c# in a Db key becomes a Db so the music doesn't print the accidental)
+                - Auto-guess the clef of a staff based on how many notes are above or below center C
+                - Clean up rests (separate, consecutive $ rests within a measure get merged into one)
+                - (TOOOOODOOOOOO) Sort the staves so that the staves with the busiest parts come are at the top, and the higher parts are at the top
+            - 6) Make the # of parts in our output sheet music true to the correct number of parts as shown in the "gold standard" sheet music
+                - Merge all combinations of parallel measures that can be joined together like a puzzle (non-trivial)
+                - Clean staves so there are no empty staves  
+            - 7) Read and implement user-specified music configurations through a .yaml file 
+                - Adjust music according to user specified Time and Key signatures for different parts of the music
+                - Allow users to specify whether they want auto-adjusted accidentals 
+                - Adjust music according to the user specifies that there is a pick-up measure 
+
+    - Design
+        - Functional Modules
+            - EuterpeaConverter
+            - LilyPondPostProcess
+            - LilyPondPrinter
+            - MidiMusicProcessing
+        - Abstraction Modules
+            - LilyPondSyntax
+            - EuterpeaTypes
+            - MusicTypes
+        - IO-Focused Modules
+            - Main
+            - HScoreConfiguration
+            - MidiMusicProcessing
+
+    - Testing
+        - End-to-end Testing
+            - aunque.mid (Sequential, time/key signature, tying notes)
+            - les_mis.mid (Parallel, squishing staves, tying notes)
+            - dream.mid (Parallel, squishing staves, accidental adjustment)
+            - mozart.mid (Parallel, clef guessing, accidental adjustment)
+        - Unit Testing
+            - EuterpeaConverter
+                - getRawStaves
+                - appendRests
+                - prependRests
+                - joinStaves
+                - testLengthEMusic
+            - LilyPondPostProcess
+                - postProcessTimeKeyTest
+                - breakNoteIntoTieTest
+                - postProcessAccidentalsTest
+                - guessCleffTest
+                - mergeRestsTest
+                - sortStavesByPitchAndNoteCountTest
+                - sortStavesByNoteCountTest
+                - tryCombineMeasuresTest
+            - LilyPondPrinter
+                - encapsulated in end-to-end testing
+        - QuickCheck
+            - MusicGen
+                - Gen instances for Euterpea music
+            -
+            - EuterpeaConverter
+                - Music duration invariant
+                - (list properties)
+            - LilyPondPostProcess
+                - (list functions tested here)
+
+    - Other
+        - Style: can improve by running formatter and re-indenting
+        - Advanced features:
+        - Teamwork: awesome

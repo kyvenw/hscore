@@ -1,0 +1,5 @@
+.stack-work/
+*~
+.DS_Store
+stack.yaml.lock
+project-cis552.cabal

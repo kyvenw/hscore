@@ -1,0 +1,10 @@
+- format accidentals based on key (e.g. F key has one flat on B)
+    - if a pitch is equal to A# or Bb, then default to just printing "b"
+- cross-measure notes (splitting and tying them?)
+- parallel notes on same staff
+- multi-staff parallel tracks 
+    << 
+       \new Staff 
+       \new Staff
+    >> 
+- post-processing with chords

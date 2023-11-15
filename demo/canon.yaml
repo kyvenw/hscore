@@ -1,0 +1,10 @@
+title: "Pachelbel's Canon in D Major"
+sections:
+  - key:
+      keyPitch : G
+      keyMode: Major
+    time:
+      numerator: 4
+      denominator: 4
+midi:
+  tempo: 120

@@ -1,0 +1,8 @@
+adjustAccidentals : True
+sections:
+  - key:
+      keyPitch : B
+      keyMode: Major
+    time:
+      numerator: 4
+      denominator: 4

@@ -1,0 +1,12 @@
+title: "Aunque ahora estes con el [1:00 - 1:52] - Ricardo Montaner"
+adjustAccidentals : True
+pickup:
+  numerator: 3
+  denominator: 16
+sections:
+  - key:
+      keyPitch : E
+      keyMode: Major
+    time:
+      numerator: 6
+      denominator: 8
